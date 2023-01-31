@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@700&family=Roboto+Slab:wght@500&family=Roboto:wght@700&family=Ubuntu:ital,wght@0,300;0,500;1,300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.content{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    background-color: aqua;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+} 
+ /*CSS of Bill Input  */
+.content-1 .bill{
+    padding: 1rem 0;
+    font-family: 'Playfair Display', serif
+} 
+.content-1 .bill span{
+    position: relative;
+    top: 1.5rem;
+    right: 1.8rem;
+}
+.content-1 .bill-input input{
+    width: 100%;
+    height: 1.5rem;
+    padding: 0.4rem 0;
+}
+input{
+    padding: 1rem 1rem;
+    border: none;
+    border-radius: 0.2rem;
+}
+/* CSS of All TIP Buttons */
+
+.select-tip{
+    padding: 1rem 0;
+}
+.tip-buttons{
+    width: 20rem;
+    height: 5rem;
+}
+.tip-buttons button{
+    height: 2rem;
+    width: 6.5rem;
+    padding: 1rem;
+    padding-top: 1rem;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}
+
+/* CSS of no of people */
+.people{
+    display: flex;
+    flex-direction: column;
+}
+.content-2{
+    display: block;
+    width: 20rem;
+}
+
+/* CSS of Tip amount */
+
+/* .content-1{
+    width: 20rem;
+    height: 15rem;
+}
+.bill input{
+    height: 1.8rem;
+    width: 100%;
+    margin: 0.5rem 0;
+}
+.bill-input{
+    display: flex;
+    flex-direction: row;
+}
+.bill-input span{
+    position: relative;
+    left: 1rem;
+    top: 1rem;
+    font-weight: 800;
+    font-size: larger;
+}
+input{
+    padding: 1.2rem 1.2rem;
+    font-family: "Ubuntu";
+    font-weight: 600;
+    font-size: medium;
+    border: none;
+    border-radius: 0.2rem;
+} */

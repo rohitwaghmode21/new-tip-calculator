@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="first.js"></script>
+</head>
+
+<body>
+    <div class="content">
+        <div class="content-1">
+            <div class="bill">
+                <label>Bill $ </label>
+              
+                <div class="bill-input">
+                    <input type="number" id="BillInput">
+                </div>
+            </div>
+            <div class="select-tip">
+                <label for="">Select Tip %</label>
+                <div class="tip-buttons">
+                    <button class="tips tip-5">5%</button>
+                    <button class="tips tip-10">10%</button>
+                    <button class="tips tip-15 btn-active">15%</button>
+                    <button class="tips tip-20">25%</button>
+                    <button class="tips tip-25">50%</button>
+                    <input type="text" placeholder="Custom" id = 'custom-input'>
+                </div>
+            </div>
+            <div class="people">
+                <label for="">No of People</label>
+                <input type="number" id="PeopleCount">
+            </div>
+        </div>
+        <div class="content-2">
+            <div>
+                <h3>Tip Amount $</h3>
+                <span id="tip-amont"></span>
+            </div>
+            <div>
+                <h3>Total $</h3>
+                <span id="total-amount"></span>
+            </div>
+            <div>
+                <button>Submit</button>
+            </div>
+        </div>
+    </div>
+    <script>
+     
+        var BillInput = document.getElementById("BillInput");
+        var PeopleCount = document.getElementById("PeopleCount");
+        var TipAmount = document.getElementById("tip-amount");
+        var TotalAmount = document.getElementById("total-amount");
+        var tips = document.querySelectorAll(".tips");
+        var customTip = document.getElementById("custom-input")
+        console.log(tips[1].innerHTML, tips[0].innerHTML, tips[2].innerHTML);
+
+
+        BillInput.value = "0";
+        PeopleCount.value = "1";
+        // TipAmount.innerHTML = "$" + (0.0).toFixed(2);
+        // TotalAmount.innerHTML = "$" + (0.0).toFixed(2);
+
+        BillInput.addEventListener("input", biilInputFun);
+        PeopleCount.addEventListener("input", peopleCountFun);
+
+        let billvalue = ""
+        let peoplevalue = 1;
+        let tipvalue = 0.15;
+       
+
+        function biilInputFun (e){
+          
+            billvalue = parseFloat(BillInput.value);
+            console.log("Bill input", billvalue);
+        }
+        biilInputFun();
+
+        function peopleCountFun () {
+            peoplevalue = parseFloat(PeopleCount.value);
+            console.log("People Count", peoplevalue)
+        }
+        peopleCountFun();
+
+        tips.forEach(element => {
+            element.addEventListener("click", handleClick);
+        })
+
+        function handleClick (e) {
+            tips.forEach(element => {
+                // clear state
+                element.classList.remove("btn-active");
+
+                // set active state
+                if(e.target.innerHTML == element.innerHTML){
+                    element.classList.add("btn-active");
+                    tipvalue = parseFloat(element.innerHTML)/100;
+                }
+            })
+            console.log(tipvalue);
+
+            // clear custom tip vale
+            customTip.value = "";
+        }
+
+        customTip.addEventListener("click", findCustomTipValue);
+
+        function validateInt(s){
+            let rgx = /^[0-9]*/;
+            return s.match(rgx);
+        }
+
+        function findCustomTipValue () {
+            // validate tipcustom value
+           if(!validateInt(customTip.value)){
+            customTip.value = customTip.value.substring(0, customTip.value.length - 1);
+           }
+            // only integer numbers are allowed
+            tipvalue = parseFloat((customTip.value)/100);
+            console.log(tipvalue);
+
+            // remove active states from buttons;
+            tips.forEach(element => {
+                element.classList.remove("btn-active");
+            })
+        }
+    
+    </script>
+</body>
+
+</html>
